@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "19914948116",
+    "project_id": "mammapasta-dc566",
+    "storage_bucket": "mammapasta-dc566.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19914948116:android:312d4aecb8c9e882343101",
+        "android_client_info": {
+          "package_name": "com.mammapasta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGuTB2ngaON_fWCEcEItdfofeJxGVygII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
