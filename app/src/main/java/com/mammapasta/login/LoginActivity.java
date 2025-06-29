@@ -33,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         preferencesManager = new PreferencesManager(this);
+        if (preferencesManager.isLoggedIn()) {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        }
         
         btnLogin.setOnClickListener(v -> loginUser());
         txtRegister.setOnClickListener(v -> {

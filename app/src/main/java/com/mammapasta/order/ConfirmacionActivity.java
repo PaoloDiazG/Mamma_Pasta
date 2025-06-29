@@ -5,11 +5,14 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.mammapasta.R;
 import com.mammapasta.db.DBHelper;
+import com.mammapasta.utils.PreferencesManager;
 
 public class ConfirmacionActivity extends AppCompatActivity {
 
     TextView txtTituloPizza, txtDetalles, txtPrecioFinal;
     Button btnConfirmarCompra;
+
+    Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,8 @@ public class ConfirmacionActivity extends AppCompatActivity {
         txtPrecioFinal = findViewById(R.id.txtPrecioFinal);
         btnConfirmarCompra = findViewById(R.id.btnConfirmarCompra);
 
-        Bundle extras = getIntent().getExtras();
+        extras = getIntent().getExtras();
+
         if (extras != null) {
 
             // Para pizza personalizada
@@ -56,8 +60,12 @@ public class ConfirmacionActivity extends AppCompatActivity {
         }
 
         btnConfirmarCompra.setOnClickListener(v -> {
-            DBHelper dbHelper = new DBHelper(this);
 
+            // Obtener email del usuario logueado
+            PreferencesManager prefs = new PreferencesManager(this);
+            String userEmail = prefs.getEmail();
+
+            // Preparar datos del pedido
             String nombrePizza;
             String detalles;
             double precio;
@@ -72,16 +80,19 @@ public class ConfirmacionActivity extends AppCompatActivity {
                 precio = obtenerPrecio();
             }
 
-            dbHelper.insertarPedido(nombrePizza, detalles, precio);
+            DBHelper dbHelper = new DBHelper(this);
+            dbHelper.insertarPedido(userEmail, nombrePizza, detalles, precio);
 
             Toast.makeText(this, "¡Pedido guardado!", Toast.LENGTH_SHORT).show();
             finish();
         });
 
     }
+
     private double obtenerPrecio() {
         String precioStr = txtPrecioFinal.getText().toString().replace("Total: $", "");
         return Double.parseDouble(precioStr);
     }
 
 }
+

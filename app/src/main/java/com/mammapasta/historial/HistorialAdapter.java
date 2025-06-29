@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mammapasta.R;
@@ -19,22 +20,31 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialAdapter.View
         this.pedidos = pedidos;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_historial, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String pedido = pedidos.get(position);
         holder.textViewPedido.setText(pedido);
     }
 
     @Override
     public int getItemCount() {
-        return pedidos.size();
+        return pedidos != null ? pedidos.size() : 0;
+    }
+
+    /**
+     * Permite actualizar la lista de pedidos en caso de recarga.
+     */
+    public void updatePedidos(List<String> nuevosPedidos) {
+        this.pedidos = nuevosPedidos;
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

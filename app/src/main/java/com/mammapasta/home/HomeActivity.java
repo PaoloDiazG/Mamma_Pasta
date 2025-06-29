@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mammapasta.builder.ConstruirPizzaActivity;
 import com.mammapasta.db.DBHelper;
 import com.mammapasta.historial.HistorialActivity;
+import com.mammapasta.login.LoginActivity;
 import com.mammapasta.models.Pizza;
 import com.mammapasta.R;
+import com.mammapasta.utils.PreferencesManager;
 
 import java.util.List;
 
@@ -23,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     DBHelper dbHelper;
     Button btnConstruir;
     Button btnHistorial;
+    Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
 
         btnConstruir = findViewById(R.id.btnConstruirPizza);
         btnHistorial = findViewById(R.id.btnHistorial);
+        btnLogout = findViewById(R.id.btnLogout);
 
         dbHelper = new DBHelper(this);
         List<Pizza> pizzaList = dbHelper.getAllPizzas();
@@ -49,6 +53,15 @@ public class HomeActivity extends AppCompatActivity {
         btnConstruir.setOnClickListener(v -> {
             Intent intent = new Intent(this, ConstruirPizzaActivity.class);
             startActivity(intent);
+        });
+
+        btnLogout.setOnClickListener(v -> {
+            PreferencesManager preferencesManager = new PreferencesManager(this);
+            preferencesManager.setLoggedIn(false);
+            preferencesManager.setEmail(null);
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 }

@@ -1,12 +1,16 @@
 package com.mammapasta.historial;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mammapasta.R;
 import com.mammapasta.db.DBHelper;
+import com.mammapasta.utils.PreferencesManager;
 
 import java.util.List;
 
@@ -15,6 +19,7 @@ public class HistorialActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     HistorialAdapter adapter;
     DBHelper dbHelper;
+    TextView txtEmpty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +29,24 @@ public class HistorialActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewHistorial);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        dbHelper = new DBHelper(this);
-        List<String> pedidos = dbHelper.getAllPedidos();
+        txtEmpty = findViewById(R.id.txtEmpty);
 
-        adapter = new HistorialAdapter(pedidos);
-        recyclerView.setAdapter(adapter);
+        // Obtener email del usuario logueado
+        PreferencesManager preferencesManager = new PreferencesManager(this);
+        String email = preferencesManager.getEmail();
+
+        dbHelper = new DBHelper(this);
+        List<String> pedidos = dbHelper.getPedidosByEmail(email);
+
+        if (pedidos.isEmpty()) {
+            txtEmpty.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            txtEmpty.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+
+            adapter = new HistorialAdapter(pedidos);
+            recyclerView.setAdapter(adapter);
+        }
     }
 }
