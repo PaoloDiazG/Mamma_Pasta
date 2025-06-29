@@ -16,6 +16,12 @@
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".home.HomeActivity" />
         <activity android:name=".detail.DetallePizzaActivity" />
+        <activity android:name=".builder.ConstruirPizzaActivity" />
+        <activity android:name=".order.ConfirmacionActivity" />
+        <activity android:name=".historial.HistorialActivity"/>
+
+
+
 
         <activity
             android:name=".MainActivity"

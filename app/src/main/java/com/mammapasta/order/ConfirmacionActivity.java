@@ -1,0 +1,87 @@
+package com.mammapasta.order;
+
+import android.os.Bundle;
+import android.widget.*;
+import androidx.appcompat.app.AppCompatActivity;
+import com.mammapasta.R;
+import com.mammapasta.db.DBHelper;
+
+public class ConfirmacionActivity extends AppCompatActivity {
+
+    TextView txtTituloPizza, txtDetalles, txtPrecioFinal;
+    Button btnConfirmarCompra;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_confirmacion);
+
+        txtTituloPizza = findViewById(R.id.txtTituloPizza);
+        txtDetalles = findViewById(R.id.txtDetalles);
+        txtPrecioFinal = findViewById(R.id.txtPrecioFinal);
+        btnConfirmarCompra = findViewById(R.id.btnConfirmarCompra);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+
+            // Para pizza personalizada
+            if (extras.containsKey("masa")) {
+                txtTituloPizza.setText("Pizza Personalizada");
+
+                String masa = extras.getString("masa");
+                String salsa = extras.getString("salsa");
+                boolean queso = extras.getBoolean("queso");
+                String toppings = extras.getString("toppings");
+                double precioTotal = extras.getDouble("precio_total");
+
+                String detalles =
+                        "Masa: " + masa + "\n" +
+                                "Salsa: " + salsa + "\n" +
+                                "Queso: " + (queso ? "Sí (+$2)" : "No") + "\n" +
+                                "Toppings: " + (toppings.isEmpty() ? "Ninguno" : toppings);
+
+                txtDetalles.setText(detalles);
+                txtPrecioFinal.setText("Total: $" + String.format("%.2f", precioTotal));
+
+            } else {
+                // Para pizza predeterminada
+                String nombre = extras.getString("nombre_pizza");
+                String ingredientes = extras.getString("ingredientes");
+                double precio = extras.getDouble("precio");
+
+                txtTituloPizza.setText(nombre);
+                txtDetalles.setText("Ingredientes: " + ingredientes);
+                txtPrecioFinal.setText("Total: $" + String.format("%.2f", precio));
+            }
+        }
+
+        btnConfirmarCompra.setOnClickListener(v -> {
+            DBHelper dbHelper = new DBHelper(this);
+
+            String nombrePizza;
+            String detalles;
+            double precio;
+
+            if (extras.containsKey("masa")) {
+                nombrePizza = "Pizza Personalizada";
+                detalles = txtDetalles.getText().toString();
+                precio = obtenerPrecio();
+            } else {
+                nombrePizza = extras.getString("nombre_pizza");
+                detalles = txtDetalles.getText().toString();
+                precio = obtenerPrecio();
+            }
+
+            dbHelper.insertarPedido(nombrePizza, detalles, precio);
+
+            Toast.makeText(this, "¡Pedido guardado!", Toast.LENGTH_SHORT).show();
+            finish();
+        });
+
+    }
+    private double obtenerPrecio() {
+        String precioStr = txtPrecioFinal.getText().toString().replace("Total: $", "");
+        return Double.parseDouble(precioStr);
+    }
+
+}

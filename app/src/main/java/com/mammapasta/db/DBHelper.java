@@ -14,11 +14,21 @@ import java.util.List;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "mammapasta.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
+
+    private static final String TABLE_PEDIDOS = "table_pedidos";
+
+    private static final String CREATE_PEDIDOS_TABLE =
+            "CREATE TABLE " + TABLE_PEDIDOS + " (" +
+                    "id_pedido INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "nombre_pizza TEXT," +
+                    "detalles TEXT," +
+                    "precio REAL)";
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Crear tabla pizzas
@@ -36,6 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "precio_extra REAL)");
 
         // Insertar datos iniciales
+        db.execSQL(CREATE_PEDIDOS_TABLE);
         insertInitialData(db);
     }
 
@@ -84,6 +95,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS table_pizzas");
         db.execSQL("DROP TABLE IF EXISTS table_toppings");
+        db.execSQL("DROP TABLE IF EXISTS table_pedidos");
         onCreate(db);
     }
 
@@ -125,5 +137,30 @@ public class DBHelper extends SQLiteOpenHelper {
         return toppings;
     }
 
+    public void insertarPedido(String nombrePizza, String detalles, double precio) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("nombre_pizza", nombrePizza);
+        values.put("detalles", detalles);
+        values.put("precio", precio);
+        db.insert(TABLE_PEDIDOS, null, values);
+        db.close();
+    }
 
+    public List<String> getAllPedidos() {
+        List<String> pedidos = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_PEDIDOS, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre_pizza"));
+                String detalles = cursor.getString(cursor.getColumnIndexOrThrow("detalles"));
+                double precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"));
+                pedidos.add(nombre + " | " + detalles + " | $" + precio);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return pedidos;
+    }
 }

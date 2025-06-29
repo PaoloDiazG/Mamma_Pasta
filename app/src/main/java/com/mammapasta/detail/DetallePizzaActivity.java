@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mammapasta.R;
 import com.mammapasta.db.DBHelper;
 import com.mammapasta.models.Topping;
+import com.mammapasta.order.ConfirmacionActivity;
+
 import java.util.*;
 
 public class DetallePizzaActivity extends AppCompatActivity {
@@ -85,8 +87,27 @@ public class DetallePizzaActivity extends AppCompatActivity {
     }
 
     private void agregarPedido() {
-        Toast.makeText(this, "Pizza agregada por $" + precioTotal, Toast.LENGTH_SHORT).show();
-        // Aquí podrías enviar datos al carrito o a SQLite, etc.
-        finish();
+        Intent intent = new Intent(this, ConfirmacionActivity.class);
+        intent.putExtra("nombre_pizza", txtNombrePizza.getText().toString());
+        intent.putExtra("ingredientes", getToppingsSeleccionados());
+        intent.putExtra("precio", precioTotal);
+        startActivity(intent);
     }
+
+    private String getToppingsSeleccionados() {
+        StringBuilder builder = new StringBuilder();
+        for (Map.Entry<CheckBox, Topping> entry : toppingCheckboxes.entrySet()) {
+            if (entry.getKey().isChecked()) {
+                builder.append(entry.getValue().getNombre()).append(", ");
+            }
+        }
+        if (builder.length() > 2) {
+            builder.setLength(builder.length() - 2);
+        } else {
+            builder.append("Sin toppings extra");
+        }
+        return builder.toString();
+    }
+
+
 }
