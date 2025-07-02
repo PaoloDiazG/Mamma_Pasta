@@ -1,38 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#FFD978">
 
-    <EditText
-        android:id="@+id/edtEmail"
+    <ImageView
+        android:contentDescription="Logo de Mamá Pasta"
+        android:src="@drawable/ic_mammapasta_logo"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Correo electrónico -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="Correo electrónico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        app:boxStrokeColor="#B71C1C"
+        app:hintTextColor="#B71C1C"
+        app:boxBackgroundColor="#FFFDE7">
 
-    <EditText
-        android:id="@+id/edtPassword"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#B71C1C"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Contraseña con ojito -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_marginTop="12dp"
+        app:boxStrokeColor="#B71C1C"
+        app:hintTextColor="#B71C1C"
+        app:boxBackgroundColor="#FFFDE7"
+        app:endIconMode="password_toggle">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="#B71C1C"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Botón de login -->
     <Button
         android:id="@+id/btnLogin"
-        android:text="Iniciar sesión"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Iniciar sesión"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#C62828"
+        android:layout_marginTop="16dp"
+        android:elevation="2dp"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
+    <!-- Pizza giratoria -->
+    <ImageView
+        android:id="@+id/loadingPizza"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_mammapasta_logo"
+        android:layout_gravity="center"
         android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:contentDescription="Cargando..."/>
 
-    <TextView
-        android:id="@+id/txtRegister"
-        android:text="¿No tienes cuenta? Regístrate"
+    <!-- Texto: ¿No tienes cuenta? Regístrate -->
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/txtRegisterPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿No tienes cuenta? "
+            android:textColor="#880E4F"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/txtRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regístrate"
+            android:textColor="#D32F2F"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
 </LinearLayout>
