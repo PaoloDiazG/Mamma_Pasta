@@ -7,9 +7,9 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mammapasta.R;
 import com.mammapasta.detail.DetallePizzaActivity;
 import com.mammapasta.models.Pizza;
-import com.mammapasta.R;
 
 import java.util.List;
 
@@ -33,6 +33,22 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.PizzaViewHol
     @Override
     public void onBindViewHolder(@NonNull PizzaViewHolder holder, int position) {
         Pizza pizza = pizzaList.get(position);
+
+        holder.txtName.setText(pizza.getNombre());
+        holder.txtDesc.setText(pizza.getDescripcion());
+        holder.txtPrice.setText("$" + String.format("%.2f", pizza.getPrecioBase()));
+
+        // Obtener el resourceId de la imagen a partir del nombre almacenado
+        int imageResId = context.getResources().getIdentifier(
+                pizza.getImagenResource(), "drawable", context.getPackageName()
+        );
+
+        if (imageResId != 0) {
+            holder.imgPizza.setImageResource(imageResId);
+        } else {
+            holder.imgPizza.setImageResource(R.drawable.ic_mammapasta_logo);
+        }
+
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, DetallePizzaActivity.class);
             intent.putExtra("nombre", pizza.getNombre());
@@ -41,10 +57,6 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.PizzaViewHol
             intent.putExtra("imagen_resource", pizza.getImagenResource());
             context.startActivity(intent);
         });
-
-
-        // Placeholder: cargar imágenes con Glide si tienes recursos
-        // Glide.with(context).load(R.drawable.pizza_napo).into(holder.imgPizza);
     }
 
     @Override
@@ -58,9 +70,9 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.PizzaViewHol
 
         public PizzaViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtName = itemView.findViewById(R.id.txtName);
-            txtDesc = itemView.findViewById(R.id.txtDesc);
-            txtPrice = itemView.findViewById(R.id.txtPrice);
+            txtName = itemView.findViewById(R.id.txtPizzaName);
+            txtDesc = itemView.findViewById(R.id.txtPizzaDesc);
+            txtPrice = itemView.findViewById(R.id.txtPizzaPrice);
             imgPizza = itemView.findViewById(R.id.imgPizza);
         }
     }

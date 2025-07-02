@@ -15,6 +15,7 @@ import com.mammapasta.login.LoginActivity;
 import com.mammapasta.models.Pizza;
 import com.mammapasta.R;
 import com.mammapasta.utils.PreferencesManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import java.util.List;
 
@@ -63,5 +64,8 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
     }
 }

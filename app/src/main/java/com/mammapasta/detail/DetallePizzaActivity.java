@@ -19,6 +19,7 @@ public class DetallePizzaActivity extends AppCompatActivity {
     TextView txtNombrePizza, txtDescripcionPizza, txtPrecioBase, txtPrecioTotal;
     LinearLayout layoutToppings;
     Button btnAgregarPedido;
+    TextView btnBack;
 
     double precioBase;
     double precioTotal;
@@ -39,6 +40,8 @@ public class DetallePizzaActivity extends AppCompatActivity {
         txtPrecioTotal = findViewById(R.id.txtPrecioTotal);
         layoutToppings = findViewById(R.id.layoutToppings);
         btnAgregarPedido = findViewById(R.id.btnAgregarPedido);
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> finish());
 
         dbHelper = new DBHelper(this);
 
@@ -108,6 +111,9 @@ public class DetallePizzaActivity extends AppCompatActivity {
         }
         return builder.toString();
     }
+
+
+
 
 
 }

@@ -1,38 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="#FFD978"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Bienvenido a Mamma Pasta!"
+        android:textColor="#E53935"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="16dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="8dp"
         android:scrollbars="vertical"/>
 
-    <Button
-        android:id="@+id/btnConstruirPizza"
-        android:text="Construye tu Pizza"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
 
-    <Button
-        android:id="@+id/btnHistorial"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ver Historial"
-        android:layout_marginTop="16dp"/>
+        <Button
+            android:id="@+id/btnConstruirPizza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🍕 Construye tu Pizza"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:backgroundTint="#E53935"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="12dp"
+            android:padding="12dp"
+            android:elevation="4dp"/>
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cerrar Sesión"
-        android:layout_marginTop="16dp"/>
+        <Button
+            android:id="@+id/btnHistorial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📜 Ver Historial"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:backgroundTint="#E53935"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="12dp"
+            android:padding="12dp"
+            android:elevation="4dp"/>
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚪 Cerrar Sesión"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:backgroundTint="#E53935"
+            android:fontFamily="sans-serif-medium"
+            android:padding="12dp"
+            android:elevation="4dp"/>
+    </LinearLayout>
 
 </LinearLayout>
-
