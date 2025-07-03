@@ -24,14 +24,16 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_historial, parent, false);
+                .inflate(R.layout.item_pedido, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String pedido = pedidos.get(position);
-        holder.textViewPedido.setText(pedido);
+
+        holder.txtPedidoTitulo.setText("Pedido #" + (position + 1));
+        holder.txtPedidoDetalles.setText(pedido);
     }
 
     @Override
@@ -39,20 +41,19 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialAdapter.View
         return pedidos != null ? pedidos.size() : 0;
     }
 
-    /**
-     * Permite actualizar la lista de pedidos en caso de recarga.
-     */
     public void updatePedidos(List<String> nuevosPedidos) {
         this.pedidos = nuevosPedidos;
         notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewPedido;
+        TextView txtPedidoTitulo;
+        TextView txtPedidoDetalles;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            textViewPedido = itemView.findViewById(R.id.textViewPedido);
+            txtPedidoTitulo = itemView.findViewById(R.id.txtPedidoTitulo);
+            txtPedidoDetalles = itemView.findViewById(R.id.txtPedidoDetalles);
         }
     }
 }

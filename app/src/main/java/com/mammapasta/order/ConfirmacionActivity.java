@@ -1,5 +1,6 @@
 package com.mammapasta.order;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -84,8 +85,14 @@ public class ConfirmacionActivity extends AppCompatActivity {
             dbHelper.insertarPedido(userEmail, nombrePizza, detalles, precio);
 
             Toast.makeText(this, "¡Pedido guardado!", Toast.LENGTH_SHORT).show();
+
+            // Redireccionar a HomeActivity
+            Intent intent = new Intent(this, com.mammapasta.home.HomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
             finish();
         });
+
 
     }
 

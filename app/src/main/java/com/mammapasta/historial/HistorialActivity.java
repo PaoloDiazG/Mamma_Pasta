@@ -20,6 +20,7 @@ public class HistorialActivity extends AppCompatActivity {
     HistorialAdapter adapter;
     DBHelper dbHelper;
     TextView txtEmpty;
+    TextView btnVolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,12 @@ public class HistorialActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         txtEmpty = findViewById(R.id.txtEmpty);
+        btnVolver = findViewById(R.id.btnVolver);
+
+        // Click → volver atrás
+        btnVolver.setOnClickListener(v -> {
+            finish();
+        });
 
         // Obtener email del usuario logueado
         PreferencesManager preferencesManager = new PreferencesManager(this);
