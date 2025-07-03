@@ -63,7 +63,7 @@ public class ConstruirPizzaActivity extends AppCompatActivity {
 
         for (Topping topping : toppingsList) {
             CheckBox checkBox = new CheckBox(this);
-            checkBox.setText(topping.getNombre() + " (+$" + topping.getPrecioExtra() + ")");
+            checkBox.setText(topping.getNombre() + " (+S/" + topping.getPrecioExtra() + ")");
             layoutToppings.addView(checkBox);
             toppingCheckboxes.put(checkBox, topping);
 
@@ -87,7 +87,7 @@ public class ConstruirPizzaActivity extends AppCompatActivity {
         }
 
         precioTotal = total;
-        txtPrecioTotal.setText("Total: $" + String.format("%.2f", precioTotal));
+        txtPrecioTotal.setText("Total: S/" + String.format("%.2f", precioTotal));
     }
 
     private void confirmarPizza() {

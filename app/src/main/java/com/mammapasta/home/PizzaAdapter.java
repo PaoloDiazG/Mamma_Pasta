@@ -36,7 +36,7 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.PizzaViewHol
 
         holder.txtName.setText(pizza.getNombre());
         holder.txtDesc.setText(pizza.getDescripcion());
-        holder.txtPrice.setText("$" + String.format("%.2f", pizza.getPrecioBase()));
+        holder.txtPrice.setText("S/" + String.format("%.2f", pizza.getPrecioBase()));
 
         // Obtener el resourceId de la imagen a partir del nombre almacenado
         int imageResId = context.getResources().getIdentifier(

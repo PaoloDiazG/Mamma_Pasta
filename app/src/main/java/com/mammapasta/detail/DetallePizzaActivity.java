@@ -86,7 +86,7 @@ public class DetallePizzaActivity extends AppCompatActivity {
             }
         }
         precioTotal = precioBase + extra;
-        txtPrecioTotal.setText("Total: $" + precioTotal);
+        txtPrecioTotal.setText("Total: S/" + precioTotal);
     }
 
     private void agregarPedido() {
