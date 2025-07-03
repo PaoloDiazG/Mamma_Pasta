@@ -54,7 +54,7 @@ public class DetallePizzaActivity extends AppCompatActivity {
 
         txtNombrePizza.setText(nombre);
         txtDescripcionPizza.setText(descripcion);
-        txtPrecioBase.setText("Base: S/" + precioBase);
+        txtPrecioBase.setText("Base: $" + precioBase);
 
         int resId = getResources().getIdentifier(imagenResource, "drawable", getPackageName());
         if (resId != 0) {
@@ -65,7 +65,7 @@ public class DetallePizzaActivity extends AppCompatActivity {
 
         for (Topping topping : toppingsList) {
             CheckBox checkBox = new CheckBox(this);
-            checkBox.setText(topping.getNombre() + " (+S/" + topping.getPrecioExtra() + ")");
+            checkBox.setText(topping.getNombre() + " (+$" + topping.getPrecioExtra() + ")");
             layoutToppings.addView(checkBox);
             toppingCheckboxes.put(checkBox, topping);
 
@@ -73,7 +73,7 @@ public class DetallePizzaActivity extends AppCompatActivity {
         }
 
         precioTotal = precioBase;
-        txtPrecioTotal.setText("Total: S/" + precioTotal);
+        txtPrecioTotal.setText("Total: $" + precioTotal);
 
         btnAgregarPedido.setOnClickListener(v -> agregarPedido());
     }
@@ -86,7 +86,7 @@ public class DetallePizzaActivity extends AppCompatActivity {
             }
         }
         precioTotal = precioBase + extra;
-        txtPrecioTotal.setText("Total: S/" + precioTotal);
+        txtPrecioTotal.setText("Total: $" + precioTotal);
     }
 
     private void agregarPedido() {
