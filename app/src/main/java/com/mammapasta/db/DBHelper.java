@@ -182,7 +182,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
                 pedidos.add(nombre + "\n" +
                         detalles + "\n" +
-                        "Precio: $" + String.format("%.2f", precio));
+                        "Precio: S/" + String.format("%.2f", precio));
             } while (cursor.moveToNext());
         }
         cursor.close();

@@ -46,7 +46,7 @@ public class ConfirmacionActivity extends AppCompatActivity {
                                 "Toppings: " + (toppings.isEmpty() ? "Ninguno" : toppings);
 
                 txtDetalles.setText(detalles);
-                txtPrecioFinal.setText("Total: $" + String.format("%.2f", precioTotal));
+                txtPrecioFinal.setText("Total: S/" + String.format("%.2f", precioTotal));
 
             } else {
                 // Para pizza predeterminada
@@ -97,7 +97,7 @@ public class ConfirmacionActivity extends AppCompatActivity {
     }
 
     private double obtenerPrecio() {
-        String precioStr = txtPrecioFinal.getText().toString().replace("Total: $", "");
+        String precioStr = txtPrecioFinal.getText().toString().replace("Total: S/", "");
         return Double.parseDouble(precioStr);
     }
 
