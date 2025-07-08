@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFD978">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <ImageView
+            android:contentDescription="Logo de Mamá Pasta"
+            android:src="@drawable/ic_mammapasta_logo"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Correo electrónico -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            app:boxStrokeColor="#B71C1C"
+            app:hintTextColor="#B71C1C"
+            app:boxBackgroundColor="#FFFDE7">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#B71C1C"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Error de correo -->
+        <TextView
+            android:id="@+id/txtEmailError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#B71C1C"
+            android:textSize="12sp"
+            android:text=""
+            android:visibility="gone"
+            android:paddingTop="4dp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            app:boxStrokeColor="#B71C1C"
+            app:hintTextColor="#B71C1C"
+            android:layout_marginTop="4dp"
+            app:boxBackgroundColor="#FFFDE7"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="#B71C1C"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Error general de contraseña que se actualiza -->
+        <TextView
+            android:id="@+id/txtPasswordError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#5D4037"
+            android:textSize="14sp"
+            android:text="La contraseña debe contener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial."
+            android:paddingTop="6dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Confirmar contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirmar contraseña"
+            app:boxStrokeColor="#B71C1C"
+            app:hintTextColor="#B71C1C"
+            android:layout_marginTop="4dp"
+            app:boxBackgroundColor="#FFFDE7"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="#B71C1C"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Error de confirmación -->
+        <TextView
+            android:id="@+id/txtConfirmPasswordError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#B71C1C"
+            android:textSize="12sp"
+            android:text=""
+            android:visibility="gone"
+            android:paddingTop="4dp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Botón de registro -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#C62828"
+            android:layout_marginTop="4dp"
+            android:elevation="2dp"/>
+
+        <!-- Barra de carga -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleLarge"/>
+
+        <!-- Imagen animada estilo pizza girando -->
+        <ImageView
+            android:id="@+id/loadingPizza"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_mammapasta_logo"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:contentDescription="Cargando..."/>
+
+        <!-- Texto: ¿Ya tienes cuenta? Inicia sesión -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:id="@+id/txtLoginPrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Ya tienes cuenta? "
+                android:textColor="#880E4F"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/txtLoginLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inicia sesión"
+                android:textColor="#D32F2F"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mamma_yellow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/txtTituloPizza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✅ Tu Pedido"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_red_dark"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Subtítulo -->
+        <TextView
+            android:text="📝 Detalles de tu pedido:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_brown"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Detalles -->
+        <TextView
+            android:id="@+id/txtDetalles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/mamma_brown"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Sección de descuento -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layoutDescuento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#E8F5E8">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:text="🎉 ¡Descuento aplicado!"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/mamma_green"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txtCodigoAplicado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Código: DESCUENTO10"
+                    android:textSize="14sp"
+                    android:textColor="@color/mamma_brown"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/txtDescuento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descuento: -S/.2.00"
+                    android:textSize="14sp"
+                    android:textColor="@color/mamma_green"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Total final -->
+        <TextView
+            android:id="@+id/txtPrecioFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: S/.0.00"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_red_dark"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botón aplicar código -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCodigoPromocional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎁 Aplicar código promocional"
+            android:textSize="16sp"
+            android:textColor="@color/mamma_red_dark"
+            android:backgroundTint="@android:color/white"
+            app:cornerRadius="12dp"
+            app:strokeColor="@color/mamma_red_dark"
+            app:strokeWidth="2dp"
+            android:paddingVertical="14dp"
+            android:textAllCaps="false"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botón confirmar compra -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmarCompra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🍕 Confirmar compra"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/mamma_red_dark"
+            app:cornerRadius="12dp"
+            android:paddingVertical="16dp"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

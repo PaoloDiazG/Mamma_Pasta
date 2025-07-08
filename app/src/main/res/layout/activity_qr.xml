@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mamma_yellow_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎁 Código Promocional"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_red_dark"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Instrucciones -->
+        <TextView
+            android:id="@+id/txtInstrucciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📱 Escanea tu código QR o ingrésalo manualmente para obtener tu descuento"
+            android:textSize="16sp"
+            android:textColor="@color/mamma_text_dark"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Botón Escanear QR -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEscanearQR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📷 Escanear código QR"
+            android:textSize="18sp"
+            android:textColor="@color/mamma_white"
+            android:backgroundTint="@color/mamma_green"
+            app:cornerRadius="12dp"
+            android:paddingVertical="16dp"
+            android:textAllCaps="false"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Subtítulo ingreso manual -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💬 O ingresa tu código manualmente:"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/mamma_text_dark"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Campo de texto -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:boxStrokeColor="@color/mamma_red_dark"
+            app:hintTextColor="@color/mamma_red_dark"
+            app:boxBackgroundColor="@android:color/transparent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtCodigoPromocional"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingresa tu código promocional"
+                android:textSize="16sp"
+                android:textColor="@color/mamma_text_dark"
+                android:textColorHint="@color/mamma_text_light"
+                android:inputType="textCapCharacters" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón verificar código -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerificarCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ Verificar código"
+            android:textSize="18sp"
+            android:textColor="@color/mamma_white"
+            android:backgroundTint="@color/mamma_red_dark"
+            app:cornerRadius="12dp"
+            android:paddingVertical="16dp"
+            android:textAllCaps="false"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botón volver sin código -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVolverSinCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⬅️ Volver sin código"
+            android:textSize="16sp"
+            android:textColor="@color/mamma_text_dark"
+            android:backgroundTint="@color/mamma_gray"
+            app:cornerRadius="12dp"
+            android:paddingVertical="14dp"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,29 @@
+<resources>
+    <!-- Amarillos -->
+    <color name="mamma_yellow">#FFD978</color> <!-- Fondo principal -->
+    <color name="mamma_yellow_light">#FFF8E1</color> <!-- Alternativo suave -->
+
+    <!-- Rojos/Naranjas -->
+    <color name="mamma_red_dark">#E53935</color> <!-- Títulos importantes, alertas -->
+
+    <!-- Verdes (para éxito o confirmación) -->
+    <color name="mamma_green">#4CAF50</color>
+    <color name="mamma_green_bg">#E8F5E8</color>
+
+    <!-- Neutros -->
+    <color name="mamma_text_dark">#333333</color> <!-- Textos principales -->
+    <color name="mamma_text_light">#666666</color> <!-- Textos secundarios -->
+    <color name="mamma_brown">#5D4037</color> <!-- Alternativa para subtítulos -->
+    <color name="mamma_gray">#9E9E9E</color>
+    <color name="mamma_gray_dark">#333333</color>
+
+
+    <!-- Especial para fondo oscuro de descanso -->
+    <color name="mamma_night_bg">#212121</color>
+    <color name="mamma_light_text">#EEEEEE</color>
+
+    <!-- Extras bien colocados -->
+    <color name="mamma_white">#FFFFFF</color>         <!-- Texto claro -->
+    <!-- Eliminado mamma_gray_dark porque duplicaba mamma_text_dark -->
+    <color name="mamma_gray_light">#757575</color>    <!-- Indicadores, estados -->
+</resources>

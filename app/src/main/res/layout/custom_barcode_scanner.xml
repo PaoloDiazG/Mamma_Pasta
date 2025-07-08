@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mamma_brown"> <!-- fondo oscuro coherente -->
+
+    <com.journeyapps.barcodescanner.BarcodeView
+        android:id="@+id/zxing_barcode_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.journeyapps.barcodescanner.ViewfinderView
+        android:id="@+id/zxing_viewfinder_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Instrucciones en la parte superior -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:padding="16dp"
+        android:text="Enfoca el código QR con la cámara"
+        android:textColor="@color/mamma_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/mamma_red_dark"
+        android:background="@color/mamma_red_dark" />
+
+    <!-- Botón para cancelar -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVolverScanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="❌ Cancelar"
+        android:textColor="@color/mamma_white"
+        android:backgroundTint="@color/mamma_red_dark"
+        android:textSize="16sp"
+        app:cornerRadius="12dp"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/mamma_yellow"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/txtEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cargando estado..."
+        android:textSize="22sp"
+        android:textColor="@color/mamma_red_dark"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBarSeguimiento"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="250dp"
+        android:layout_height="16dp"
+        android:max="3"
+        android:progress="0"
+        android:progressTint="@color/mamma_red_dark"
+        android:backgroundTint="@color/mamma_gray_light"
+        android:layout_marginBottom="32dp" />
+
+    <ImageView
+        android:id="@+id/iconoEstado"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_estado_default"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Estado actual" />
+
+    <!-- Agregado para el mensaje de espera -->
+    <TextView
+        android:id="@+id/txtMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Esperando tu pedido..."
+        android:textSize="18sp"
+        android:textColor="@color/mamma_red_dark"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Encuesta de satisfacción (solo visible cuando se entrega) -->
+    <LinearLayout
+        android:id="@+id/layoutEncuesta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Qué tan satisfecho estás con tu pedido?"
+            android:textColor="@color/mamma_text_dark"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <RatingBar
+            android:id="@+id/ratingSatisfaccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1"
+            android:rating="0"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnFinalizarEncuesta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finalizar"
+            android:backgroundTint="@color/mamma_green"
+            android:textColor="@color/mamma_white"/>
+    </LinearLayout>
+
+</LinearLayout>

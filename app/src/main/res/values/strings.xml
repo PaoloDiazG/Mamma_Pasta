@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Mamma Pasta</string>
+    <string name="zxing_msg_default_status">Enfoca el código QR para escanear</string>
+</resources>

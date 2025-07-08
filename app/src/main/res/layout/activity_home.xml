@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/mamma_yellow"
+    android:fitsSystemWindows="true">
+
+    <!-- Encabezado con título centrado y botón de carrito -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡Bienvenido a Mamma Pasta!"
+            android:textColor="@color/mamma_red_dark"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCarrito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🛒 Ver Carrito (0)"
+            android:textColor="@color/mamma_white"
+            android:textSize="14sp"
+            android:backgroundTint="@color/mamma_red_dark"
+            app:cornerRadius="20dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:elevation="4dp" />
+    </LinearLayout>
+
+    <!-- Carrito desplegable -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/layoutCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/mamma_white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🛒 Tu Carrito"
+                android:textColor="@color/mamma_red_dark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewCarrito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="300dp"
+                android:scrollbars="vertical"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/txtTotalCarrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total: S/.0.00"
+                android:textColor="@color/mamma_red_dark"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnVaciarCarrito"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Vaciar"
+                    android:textColor="@color/mamma_white"
+                    android:backgroundTint="@color/mamma_red_dark"
+                    app:cornerRadius="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:paddingVertical="10dp"
+                    android:minHeight="48dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnProcederPago"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Proceder al Pago"
+                    android:textColor="@color/mamma_white"
+                    android:backgroundTint="@color/mamma_green"
+                    app:cornerRadius="12dp"
+                    android:layout_marginStart="8dp"
+                    android:paddingVertical="10dp"
+                    android:minHeight="48dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Lista de pizzas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="8dp"
+        android:scrollbars="vertical" />
+
+    <!-- Botón destacado principal -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConstruirPizza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🍕 Construye tu Pizza"
+        android:textColor="@color/mamma_white"
+        android:textSize="18sp"
+        android:backgroundTint="@color/mamma_red_dark"
+        app:cornerRadius="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:elevation="6dp" />
+
+    <!-- Botones secundarios (historial y soporte) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnHistorial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📜 Historial"
+            android:textColor="@color/mamma_white"
+            android:textSize="14sp"
+            android:backgroundTint="@color/mamma_red_dark"
+            app:cornerRadius="16dp"
+            android:layout_marginEnd="8dp"
+            android:elevation="2dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSoporte"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="💬 Soporte"
+            android:textColor="@color/mamma_white"
+            android:textSize="14sp"
+            android:backgroundTint="@color/mamma_red_dark"
+            app:cornerRadius="16dp"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp" />
+    </LinearLayout>
+
+    <!-- Botón de Seguimiento de Pedido -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSeguimiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver Seguimiento"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/mamma_white"
+        android:textSize="14sp"
+        android:backgroundTint="@color/mamma_red_dark"
+        app:cornerRadius="20dp"
+        android:elevation="4dp" />
+
+
+    <!-- Botón pequeño para cerrar sesión -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:textColor="@color/mamma_red_dark"
+        android:textSize="12sp"
+        android:backgroundTint="@color/mamma_yellow"
+        app:cornerRadius="16dp"
+        android:layout_gravity="center_horizontal"
+        android:elevation="0dp" />
+</LinearLayout>

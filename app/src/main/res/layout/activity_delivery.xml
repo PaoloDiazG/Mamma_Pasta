@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mamma_yellow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/txtTituloDelivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🚚 Entrega a Domicilio"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_red_dark"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Subtítulo ubicación -->
+        <TextView
+            android:text="📍 Ubicación de entrega:"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/mamma_brown"
+            android:layout_marginBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Botones ubicación -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUbicacionActual"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📱 Usar mi ubicación"
+                android:textSize="14sp"
+                android:textColor="@color/mamma_white"
+                android:backgroundTint="@color/mamma_green"
+                app:cornerRadius="12dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="false"
+                android:elevation="4dp"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUbicacionManual"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="✏️ Escribir dirección"
+                android:textSize="14sp"
+                android:textColor="@color/mamma_red_dark"
+                app:cornerRadius="12dp"
+                android:backgroundTint="@color/mamma_white"
+                app:strokeColor="@color/mamma_red_dark"
+                app:strokeWidth="2dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="false"
+                android:elevation="4dp"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Estado ubicación -->
+        <TextView
+            android:id="@+id/txtUbicacionStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔄 Obteniendo ubicación..."
+            android:textSize="16sp"
+            android:textColor="@color/mamma_gray_light"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone" />
+
+        <!-- Dirección -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="🏠 Dirección completa"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="@color/mamma_red_dark"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/mamma_gray_dark"
+                android:enabled="false"
+                android:maxLines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Referencia -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutReferencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="📋 Referencia (opcional)"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="@color/mamma_red_dark"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editReferencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/mamma_gray_dark"
+                android:maxLines="2" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Teléfono -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="📞 Teléfono de contacto"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="@color/mamma_red_dark"
+            android:layout_marginBottom="24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/mamma_gray_dark"
+                android:inputType="phone"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Tiempo estimado -->
+        <TextView
+            android:text="⏱️ Tiempo estimado de entrega:"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/mamma_brown"
+            android:layout_marginBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtTiempoEntrega"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⏰ 25-35 minutos"
+            android:textSize="16sp"
+            android:textColor="@color/mamma_red_dark"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Confirmar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmarEntrega"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚚 Confirmar entrega"
+            android:textSize="18sp"
+            android:textColor="@color/mamma_white"
+            app:cornerRadius="16dp"
+            android:backgroundTint="@color/mamma_red_dark"
+            android:paddingVertical="16dp"
+            android:textAllCaps="false"
+            app:elevation="4dp" />
+    </LinearLayout>
+</ScrollView>

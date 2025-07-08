@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mamma_yellow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🍕 Construye tu Pizza"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_red_dark"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Tipo de masa -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🫓 Tipo de masa:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_brown"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerMasa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/mamma_red_dark"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Queso extra -->
+        <CheckBox
+            android:id="@+id/chkQueso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🧀 Agregar queso (+S/.2)"
+            android:textSize="16sp"
+            android:textColor="@color/mamma_brown"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Salsa -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🍅 Tipo de salsa:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_brown"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerSalsa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/mamma_red_dark"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Toppings -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🥓 Toppings:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_brown"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutToppings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Precio total -->
+        <TextView
+            android:id="@+id/txtPrecioTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: S/.0.00"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamma_red_dark"
+            android:layout_marginTop="16dp" />
+
+        <!-- Botón confirmar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ Confirmar Pizza"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:paddingVertical="16dp"
+            app:cornerRadius="16dp"
+            android:backgroundTint="@color/mamma_red_dark"
+            android:layout_marginTop="32dp"
+            app:elevation="4dp" />
+    </LinearLayout>
+</ScrollView>

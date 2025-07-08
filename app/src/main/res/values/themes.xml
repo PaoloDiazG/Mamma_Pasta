@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MammaPasta" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Quita transparencias -->
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">#FFD978</item> <!-- O el color que quieras para la status bar -->
+    </style>
+
+
+    <style name="Theme.MammaPasta" parent="Base.Theme.MammaPasta" />
+</resources>
