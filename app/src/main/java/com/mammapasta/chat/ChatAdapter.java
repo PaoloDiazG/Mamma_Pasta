@@ -1,4 +1,4 @@
-package com.mammapasta.adapters;
+package com.mammapasta.chat;
 
 import android.view.*;
 import android.widget.TextView;

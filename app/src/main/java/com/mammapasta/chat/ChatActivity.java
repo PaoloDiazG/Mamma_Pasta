@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mammapasta.R;
-import com.mammapasta.adapters.ChatAdapter;
 import com.mammapasta.builder.ConstruirPizzaActivity;
 import com.mammapasta.historial.HistorialActivity;
 import com.mammapasta.models.Message;
